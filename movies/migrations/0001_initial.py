@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Question',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('question_text', models.CharField(max_length=200)),
+                ('movie_name', models.CharField(max_length=200)),
                 ('watched_date', models.DateTimeField(verbose_name='date watched')),
             ],
         ),
