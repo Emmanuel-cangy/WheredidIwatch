@@ -1,10 +1,27 @@
+{% load static %}
 {% if latest_movie_list %}
+
+
 <ul>
   {% for movie in latest_movie_list %}
   <li><a href="/movies/{{ question.id }}/">{{ question.movie_name }}</a></li>
   {% endfor %}
 </ul>
 {% else %}
+
+<table class="styled-table">
+  <thead>
+      <tr>
+          <th>M</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr class="active-row">
+          <td></td>
+          <td>5150</td>
+      </tr>
+  </tbody>
+</table>
 
 <p>No polls are available.</p>
 {% endif %}
