@@ -7,7 +7,6 @@ class Choice(models.Model):
     def __str__(self):
         return self.provider
 
-
 class Question(models.Model):
     movie_name = models.CharField(max_length=200)
     movie_description = models.CharField(max_length=300, default='')

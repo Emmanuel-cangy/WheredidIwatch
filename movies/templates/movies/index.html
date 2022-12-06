@@ -1,27 +1,28 @@
-{% load static %}
-{% if latest_movie_list %}
+<html>
+  <head>
+    <title>WhereDidIWatch</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'movies/index.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header">WHERE DID I WATCH ?</h1>
 
+      {% if latest_movie_list %}
 
-<ul>
-  {% for movie in latest_movie_list %}
-  <li><a href="/movies/{{ question.id }}/">{{ question.movie_name }}</a></li>
-  {% endfor %}
-</ul>
-{% else %}
+      <ul class="movie-cards-container">
+        {% for movie in latest_movie_list %}
+        <li class="movie-card">
+          <button class="btn-card">
+            <a href="/movies/{{ movie.id }}/" class="link"
+              >{{ movie.movie_name }}</a
+            >
+          </button>
+        </li>
+        {% endfor %}
+      </ul>
 
-<table class="styled-table">
-  <thead>
-      <tr>
-          <th>M</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr class="active-row">
-          <td></td>
-          <td>5150</td>
-      </tr>
-  </tbody>
-</table>
-
-<p>No polls are available.</p>
-{% endif %}
+      {% else %} {% endif %}
+    </div>
+  </body>
+</html>
