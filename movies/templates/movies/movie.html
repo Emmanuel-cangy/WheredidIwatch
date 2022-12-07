@@ -2,23 +2,23 @@
 {% load static %}
 {% block content %}
 
-{% comment %} {% for provider in choice %}
-  {{provider}} {% endcomment %}
-  {% comment %} {% if provider_id == provider222_id %} {% endcomment %}
-    <h1>{{movie.movie_choice}}</h1>
     <div class="container">
       <h1>{{movie.movie_name}}</h1><br>
 
       <h4 class="text">Descripttion : {{movie.movie_description}}</h4><br>
       <h4 class="text">You watched this movie at: {{movie.watched_date}}</h4><br>
-      <h4 class="text">You used {{movie.provider222_id}}(to be changed) to watch this movie !</h4>
+
+      {% for choice in all_choice_list %}
+        {% if choice.id == movie.provider222_id%}
+          <h4 class="text">You used {{choice.provider}} to watch this movie !</h4>
+        {% endif %}
+      {% endfor %}
+
       <button class="btn-card link-back">
         <a href="/" class="link-back"
           >BACK</a
         >
       </button>
-    </div>
 
-  {% comment %} {% endif %}
-{% endfor %} {% endcomment %}
+    </div>
 {% endblock content %}
