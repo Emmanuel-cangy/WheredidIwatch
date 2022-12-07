@@ -1,28 +1,24 @@
-<html>
-  <head>
-    <title>WhereDidIWatch</title>
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'movies/index.css' %}" />
-  </head>
-  <body>
-    <div class="container">
-      <h1 class="header">WHERE DID I WATCH ?</h1>
+{% extends "base_generic.html" %}
+{% load static %}
 
-      {% if latest_movie_list %}
+{% block content %}
+  <div class="container">
+    <h1 class="header">WHERE DID I WATCH ?</h1>
 
-      <ul class="movie-cards-container">
-        {% for movie in latest_movie_list %}
-        <li class="movie-card">
-          <button class="btn-card">
-            <a href="/movies/{{ movie.id }}/" class="link"
-              >{{ movie.movie_name }}</a
-            >
-          </button>
-        </li>
-        {% endfor %}
-      </ul>
+    {% if latest_movie_list %}
 
-      {% else %} {% endif %}
-    </div>
-  </body>
-</html>
+    <ul class="movie-cards-container">
+      {% for movie in latest_movie_list %}
+      <li class="movie-card">
+        <button class="btn-card">
+          <a href="/movies/{{ movie.id }}/" class="link"
+            >{{ movie.movie_name }}</a
+          >
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% else %} {% endif %}
+  </div>
+{% endblock %}
