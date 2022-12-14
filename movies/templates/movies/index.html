@@ -20,5 +20,18 @@
     </ul>
 
     {% else %} {% endif %}
+    <div>
+      <h1>form</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        {{form}}
+
+        <input type="submit">
+      </form>
+    </div>
   </div>
+{% endblock %}
+
+{% block form %}
+<h1>form section</h1>
 {% endblock %}
