@@ -3,16 +3,17 @@ from django.http import HttpResponse
 from .models import Watched, Choice
 from django.template import loader
 from .forms import WatchedForm
+from .forms import ChoiceForm
 # Create your views here.
 def index(request):
 
     form = WatchedForm()
-    print(request.POST)
     if request.method == 'POST':
         form = WatchedForm(request.POST)
         if form.is_valid():
             print(request.POST)
             form.save()
+            form = WatchedForm()
 
     latest_movie_list = Watched.objects.all()
     all_choice_list = Choice.objects.all()
