@@ -3,7 +3,8 @@
 
 {% block content %}
   <div class="container">
-    <h1 class="header">WHERE DID I WATCH ?</h1>
+    <h1 class="header">WHERE DID I WATCH ?
+    </h1>
 
     {% if latest_movie_list %}
 
@@ -20,5 +21,20 @@
     </ul>
 
     {% else %} {% endif %}
+
+    <div class="form-cont">
+      <h1 class="form-title">New Entry</h1>
+      <form action="" method="post" class="form">
+        {% csrf_token %}
+        <table class="table">
+          {{form}}
+        </table>
+        <input type="submit" class="btn-sub">
+      </form>
+    </div>
   </div>
+{% endblock %}
+
+{% block form %}
+<h1>form section</h1>
 {% endblock %}
