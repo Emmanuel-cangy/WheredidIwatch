@@ -7,18 +7,11 @@ from .forms import ChoiceForm
 # Create your views here.
 def index(request):
 
-    form = WatchedForm()
-    if request.method == 'POST':
-        form = WatchedForm(request.POST)
-        if form.is_valid():
-            print(request.POST)
-            form.save()
-            form = WatchedForm()
+
 
     latest_movie_list = Watched.objects.all()
     all_choice_list = Choice.objects.all()
     context = {
-        'form' :form,
         'latest_movie_list': latest_movie_list,
         'all_choice_list': all_choice_list,
     }
@@ -38,3 +31,17 @@ def movie(request, watched_id):
 
     }
     return render(request, "movies/movie.html", context)
+
+def addmovie(request):
+
+    form = WatchedForm()
+    if request.method == 'POST':
+        form = WatchedForm(request.POST)
+        if form.is_valid():
+            print(request.POST)
+            form.save()
+            form = WatchedForm()
+    context = {
+        'form' :form,
+    }
+    return render(request, 'movies/addmovie.html', context)

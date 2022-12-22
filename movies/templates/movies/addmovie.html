@@ -1,0 +1,22 @@
+{% extends "base_generic.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="form-cont">
+    <h1 class="form-title">New Entry</h1>
+    <form class="form-container" action="" method="post" class="form">
+      {% csrf_token %}
+      {{form}}
+
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap: 2rem;">
+        <input type="submit" class="btn-sub">
+        <button class="btn-card link-back">
+          <a href="/" class="link-back"
+            >BACK</a
+          >
+        </button>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}
