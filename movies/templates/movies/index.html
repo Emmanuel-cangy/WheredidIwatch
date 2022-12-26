@@ -5,12 +5,11 @@
   <div class="container">
     <div class="header-container">
       <h1 class="header">WHERE DID I WATCH ? </h1>
-      <button class="btn-addmovie"><a href="/movies/addmovie" class="link"
-            >add a movie</a></button>
     </div>
+    <button class="btn-sub"><a href="/movies/addmovie" class="link">add a movie</a></button>
+    <h2>Movie List</h2>
 
     {% if latest_movie_list %}
-
     <ul class="movie-cards-container">
       {% for movie in latest_movie_list %}
       <li class="movie-card">
