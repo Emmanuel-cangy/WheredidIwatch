@@ -3,18 +3,16 @@
 
 {% block content %}
   <div class="form-cont">
-    <h1 class="form-title">New Entry</h1>
+    <h1 class="form-title">Add Movie</h1>
     <form class="form-container" action="" method="post" class="form">
       {% csrf_token %}
       {{form}}
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap: 2rem;">
-        <input type="submit" class="btn-sub">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap: 2rem; place-items: center;">
         <button class="btn-card link-back">
-          <a href="/" class="link-back"
-            >BACK</a
-          >
+          <a href="/" class="link-back">BACK</a>
         </button>
+        <input type="submit" class="btn-sub">
       </div>
     </form>
   </div>
