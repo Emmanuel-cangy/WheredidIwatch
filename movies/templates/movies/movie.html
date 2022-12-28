@@ -1,24 +1,21 @@
-{% extends "base_generic.html" %}
-{% load static %}
-{% block content %}
+{% extends "base_generic.html" %} {% load static %} {% block content %}
 
-    <div class="container">
-      <h1>{{movie.movie_name}}</h1><br>
+<div class="container">
+  <h1>{{movie.movie_name}}</h1>
+  <br />
 
-      <h4 class="text">Descripttion : {{movie.movie_description}}</h4><br>
-      <!-- <h4 class="text">You watched this movie at: {{movie.watched_date}}</h4><br> -->
+  <!-- <h4 class="text">You watched this movie at: {{movie.watched_date}}</h4><br> -->
 
-      {% for choice in all_choice_list %}
-        {% if choice.id == movie.provider222_id%}
-          <h4 class="text">You used {{choice.provider}} to watch this movie !</h4>
-        {% endif %}
-      {% endfor %}
+  {% for choice in all_choice_list %} {% if choice.id == movie.provider222_id%}
+  <div>
+    <h4 class="text">Descripttion : {{movie.movie_description}}</h4>
+    <br />
+    <h4 class="text">You used {{choice.provider}} to watch this movie !</h4>
+  </div>
+  {% endif %} {% endfor %}
 
-      <button class="btn-card link-back">
-        <a href="/" class="link-back"
-          >BACK</a
-        >
-      </button>
-
-    </div>
+  <button class="btn-card link-back">
+    <a href="/" class="link-back">BACK</a>
+  </button>
+</div>
 {% endblock content %}
